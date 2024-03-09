@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>ACM算法之分治</title>
+      <link href="/2024/02/23/Post6/"/>
+      <url>/2024/02/23/Post6/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/2024/02/23/Post6/1.png"></p><span id="more"></span><h1 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h1><h2 id="什么是分治"><a href="#什么是分治" class="headerlink" title="什么是分治"></a>什么是分治</h2><p>分治法是算法设计方法的一种。它通过将问题划分为规模更小的子问题，递归地解决划分后的子问题，再将结果合并从而高效地解决问题。</p><h2 id="分治的过程"><a href="#分治的过程" class="headerlink" title="分治的过程"></a>分治的过程</h2><p>他的流程可以分为三步：分解–&gt;解决–&gt;合并。</p><ol><li>分解原问题为结构相同的子问题</li><li>分解到某个容易求解的边界之后，进行递归求解。</li><li>将子问题的解合并成原问题的解。</li></ol><blockquote><p>注意：如果各子问题是不独立的，则分治法要重复地解公共的子问题，也就做了许多不必要的工作。此时虽然也可用分治法，但一般用 动态规划 较好。</p></blockquote><pre class="mermaid">flowchart    id1[原始问题] --> id2[问题分解]    id2 --> id11[子问题]    id2 --> id12[子问题]    id11 --> id111[子问题]    id11 --> id112[子问题]    id12 --> id121[子问题]    id12 --> id122[子问题]    id111 -.-> id3111[问题求解]    id112 -.-> id3112[问题求解]    id121 -.-> id3121[问题求解]    id122 -.-> id3122[问题求解]    id3111 --> id41[合并子解]    id3112 --> id41    id3121 --> id42[合并子解]    id3122 --> id42    id41 --> id5[合并子解]    id42 --> id5    id5 --> di6[问题的解]</pre><h2 id="如何判断分治问题"><a href="#如何判断分治问题" class="headerlink" title="如何判断分治问题"></a>如何判断分治问题</h2><p>一个问题是否适合使用分治解决，通常可以参考以下几个判断依据：</p><ol><li>问题可以分解：原问题可以分解成规模更小、类似的子问题，以及能够以相同方式递归地进行划分。</li><li>子问题是独立的：子问题之间没有重叠，互不依赖、可以独立解决。</li><li>子问题的解可以合并：原问题的解通过合并子问题的解得来。</li></ol><h2 id="分治的时间复杂度"><a href="#分治的时间复杂度" class="headerlink" title="分治的时间复杂度"></a>分治的时间复杂度</h2><p>假设将 $n$ 个问题分解为 $k$ 个 规模为 $\frac{n}{m}$ 子问题,合并和分解的时间复杂度设为 $f(n)$ ，故总的时间复杂度为：<br>$$T(n)&#x3D;kT(\frac{n}{m} )+f(n)$$<br>通过求解（代换法、递归树法、主定理法），得出时间复杂度为：<br>$$T(n)&#x3D;O(nlog(n))$$</p><h2 id="分治的常见应用"><a href="#分治的常见应用" class="headerlink" title="分治的常见应用"></a>分治的常见应用</h2><p>分治不仅可以用来解决许多算法问题，还在数据结构的设计中应用得非常广泛。</p><p>算法：</p><ul><li>寻找最近点对</li><li>大整数乘法</li><li>矩阵乘法</li><li>汉诺塔问题</li><li>求解逆序对<br>……</li></ul><p>数据结构：</p><ul><li>二分查找</li><li>归并排序</li><li>快速排序</li><li>桶排序</li><li>树</li><li>堆<br>……</li></ul><h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><h4 id="平面最近点对（加强版）"><a href="#平面最近点对（加强版）" class="headerlink" title="平面最近点对（加强版）"></a><a href="https://www.luogu.com.cn/problem/P1429">平面最近点对（加强版）</a></h4><h5 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h5><p>给定平面上 $n$ 个点，找出其中的一对点的距离，使得在这 $n$ 个点的所有点对中，该距离为所有点对中最小的</p><h5 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h5><p>第一行：$n$ ，保证 $2\le n\le 200000$ 。</p><p>接下来 $n$ 行：每行两个实数：$x\ y$ ，表示一个点的行坐标和列坐标，中间用一个空格隔开。</p><h5 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h5><p>仅一行，一个实数，表示最短距离，精确到小数点后面 $4$ 位。</p><h5 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h5><h6 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">1 1</span><br><span class="line">1 2</span><br><span class="line">2 2</span><br></pre></td></tr></table></figure><h6 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1.0000</span><br></pre></td></tr></table></figure><h5 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h5><p>数据保证 $0\le x,y\le 10^9$</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Mermaid的基本语法</title>
       <link href="/2024/02/18/Post5/"/>
       <url>/2024/02/18/Post5/</url>
