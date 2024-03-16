@@ -3,6 +3,7 @@ title: 求m区间最小值 题解
 tags: 算法
 categories: 题解
 ---
+<!-- more -->
 # [求m区间内的最小值](https://www.luogu.com.cn/problem/P1440)
 
 ## 题目描述
