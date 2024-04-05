@@ -21,19 +21,19 @@
   </script>
 
   <meta property="og:type" content="article">
-<meta property="og:title" content="圆形加法 题解">
-<meta property="og:url" content="http://example.com/2024/03/16/Post9/index.html">
+<meta property="og:title" content="决策树">
+<meta property="og:url" content="http://example.com/2024/04/05/Post12/index.html">
 <meta property="og:site_name" content="快快超人的博客">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2024/03/16/Post9/1.jpg">
-<meta property="article:published_time" content="2024-03-16T14:54:16.112Z">
-<meta property="article:modified_time" content="2024-03-16T16:20:46.062Z">
+<meta property="og:image" content="http://example.com/2024/04/05/Post12/1.jpg">
+<meta property="article:published_time" content="2024-04-05T13:04:01.108Z">
+<meta property="article:modified_time" content="2024-04-05T13:09:10.815Z">
 <meta property="article:author" content="cfn">
-<meta property="article:tag" content="算法">
+<meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2024/03/16/Post9/1.jpg">
+<meta name="twitter:image" content="http://example.com/2024/04/05/Post12/1.jpg">
 
-<link rel="canonical" href="http://example.com/2024/03/16/Post9/">
+<link rel="canonical" href="http://example.com/2024/04/05/Post12/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>圆形加法 题解 | 快快超人的博客</title>
+  <title>决策树 | 快快超人的博客</title>
   
 
 
@@ -191,7 +191,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/16/Post9/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/05/Post12/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -204,7 +204,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          圆形加法 题解
+          决策树
         </h1>
 
         <div class="post-meta">
@@ -213,23 +213,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2024-03-16 22:54:16" itemprop="dateCreated datePublished" datetime="2024-03-16T22:54:16+08:00">2024-03-16</time>
+              <time title="创建时间：2024-04-05 21:04:01 / 修改时间：21:09:10" itemprop="dateCreated datePublished" datetime="2024-04-05T21:04:01+08:00">2024-04-05</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-03-17 00:20:46" itemprop="dateModified" datetime="2024-03-17T00:20:46+08:00">2024-03-17</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
                 </span>
             </span>
 
@@ -239,14 +233,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>5.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -258,40 +252,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="/2024/03/16/Post9/1.jpg"></p>
+        <p><img src="/2024/04/05/Post12/1.jpg"></p>
 <span id="more"></span>
-<h1 id="圆形加法-需要校园网访问"><a href="#圆形加法-需要校园网访问" class="headerlink" title="圆形加法(需要校园网访问)"></a><a target="_blank" rel="noopener" href="http://172.25.5.128/p/185">圆形加法</a>(需要校园网访问)</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>你有一个长度为 $n$ 的序列 $x$，其中元素由 $0$ 到 $n-1$编号。序列各元素初始全为 $0$。</p>
-<p>你可以进行若干次如下操作：每次操作选取一组 $i$ 和 $k$ $(0 \leq i \leq n - 1, 1 \leq k \leq n)$，对所有满足 $i \leq j \leq i +k-1$ 的 $j$，执行 $x_{j \bmod n} \leftarrow x_{j \bmod n} + 1$。（通俗地讲就是将序列首尾相接拼成一个环，每次选取环上的一段，将其上元素的值全部加 $1$。）</p>
-<p>现给定另一个序列 $A$，求出由 $x$ 变换为 $A$ 所需的最小操作数。</p>
-<h2 id="Format"><a href="#Format" class="headerlink" title="Format"></a>Format</h2><h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>标准输入以下格式给出：</p>
-<p>$ N $</p>
-<p>$ A_0 $ $ A_1 $ $ \cdots $ $ A_{N-1} $</p>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>一个整数，表示由 $x$ 变换为 $A$ 所需的最小操作数。</p>
-<h2 id="Samples"><a href="#Samples" class="headerlink" title="Samples"></a>Samples</h2><h3 id="input1"><a href="#input1" class="headerlink" title="input1"></a>input1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">1 2 1 2</span><br></pre></td></tr></table></figure>
-<h3 id="output1"><a href="#output1" class="headerlink" title="output1"></a>output1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+<p>将数据读入并存储为home_data</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeRegressor</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_absolute_error</span><br><span class="line">iowa_file_path=<span class="string">&#x27;C:/Users/cfn03/Downloads/train.csv&#x27;</span></span><br><span class="line">home_data = pd.read_csv(iowa_file_path)</span><br></pre></td></tr></table></figure>
 
-<p><strong>样例解释:</strong></p>
-<p>您可以按如下方式操作:</p>
-<p>最初，$x&#x3D;(0,0,0,0)$;</p>
-<p>$i &#x3D; 1,k &#x3D; 3$ 时进行操作，$x&#x3D;( 0，1，1，1)$;</p>
-<p>$i &#x3D; 3,k &#x3D; 3$ 时进行操作，$x&#x3D;( 1，2，1，2)$ ;</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">3 1 4 1 5</span><br></pre></td></tr></table></figure>
+<p>找出要预测的变量和特征变量并将对应的数据储存在 X , y 中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">y = home_data.SalePrice</span><br><span class="line">feature_columns = [<span class="string">&#x27;LotArea&#x27;</span>, <span class="string">&#x27;YearBuilt&#x27;</span>, <span class="string">&#x27;1stFlrSF&#x27;</span>, <span class="string">&#x27;2ndFlrSF&#x27;</span>, <span class="string">&#x27;FullBath&#x27;</span>, <span class="string">&#x27;BedroomAbvGr&#x27;</span>, <span class="string">&#x27;TotRmsAbvGrd&#x27;</span>]</span><br><span class="line">X = home_data[feature_columns]</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7</span><br></pre></td></tr></table></figure>
+<p>将 X 和 y 中的数据分为 train_X , val_X , train_y,val_y ,分别用来训练和测试</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train_X,val_X,train_y,val_y = train_test_split(X,y)</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">1000000000</span><br></pre></td></tr></table></figure>
+<p>定义一个使用给定训练数据在决策树中训练并用模型的预测值与预测的真实值计算平均绝对差值的函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get_mae</span>(<span class="params">max_leaf_nodes,train_X,val_X,train_y,val_y</span>):</span><br><span class="line">    model=DecisionTreeRegressor(max_leaf_nodes=max_leaf_nodes)</span><br><span class="line">    model.fit(train_X,train_y)</span><br><span class="line">    mae=mean_absolute_error(val_y,model.predict(val_X))</span><br><span class="line">    <span class="keyword">return</span>(mae)</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1000000000</span><br></pre></td></tr></table></figure>
+<p>使用循环不断改变决策树的深度，并根据平均绝对差值去找到最优的决策树模型</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">min_mae=-<span class="number">1</span></span><br><span class="line">best_tree_size=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>,<span class="number">5000</span>,<span class="number">5</span>):</span><br><span class="line">    mae=get_mae(i,train_X,val_X,train_y,val_y)</span><br><span class="line">    <span class="keyword">if</span> min_mae==-<span class="number">1</span>:</span><br><span class="line">        min_mae=mae</span><br><span class="line">        best_tree_size=i</span><br><span class="line">    <span class="keyword">elif</span> min_mae&gt;mae:</span><br><span class="line">        min_mae=mae</span><br><span class="line">        best_tree_size=i</span><br></pre></td></tr></table></figure>
 
-<h2 id="Limitation"><a href="#Limitation" class="headerlink" title="Limitation"></a>Limitation</h2><p>$ 1\ \leq\ N\ \leq\ 200000 $</p>
-<p>$ 1\ \leq\ A_i\ \leq\ 10^9 $</p>
-<p>所有输入均为整数</p>
-<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>很有趣的一个思维题，首先我们把这个数列转化成差分形式，例如1 2 1 2转化成-1 1 -1 1，例如3 1 4 1 5转化成-2 2 3 -3 4（第一个-1和第一个-2是因为首位与末尾相接），这样我们就知道有多少组1 -1对而不用考虑他们怎样匹配的。</p>
-<p>但是这样我们少考虑了一种情况，也就是首尾相接时，1和-1在同一个位置导致他们相消了，但是在这种情况下是整体加+1，所以也只需考虑数列里面最大的数和1-1对数的差值，就是首位相连的个数。</p>
-<p>这样我们就得到了所有的1 -1对（包括首尾相接的1 -1对），所以我们只要统计所有正数之和加上相消的1 -1对数就是题目的答案了。（注意开longlong）</p>
-<p>洛谷有个类似题，可以去尝试一下<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1969">P1969 [NOIP2013 提高组] 积木大赛 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
-<p>AC代码如下</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"></span><br><span class="line">ll n,num[<span class="number">200005</span>],maxx,ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>,&amp;num[i]);</span><br><span class="line">		maxx=<span class="built_in">max</span>(maxx,num[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;i++)</span><br><span class="line">	<span class="keyword">if</span>(num[i]-num[i<span class="number">-1</span>]&gt;<span class="number">0</span>)</span><br><span class="line">	ans+=num[i]-num[i<span class="number">-1</span>];</span><br><span class="line">	<span class="keyword">if</span>(num[<span class="number">0</span>]-num[n<span class="number">-1</span>]&gt;<span class="number">0</span>)</span><br><span class="line">	ans+=num[<span class="number">0</span>]-num[n<span class="number">-1</span>];</span><br><span class="line">	cout&lt;&lt;<span class="built_in">max</span>(maxx,ans);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(best_tree_size)</span><br><span class="line"><span class="built_in">print</span>(min_mae)</span><br></pre></td></tr></table></figure>
+
+<pre><code>180
+25069.51918972927
+</code></pre>
+<p>使用最优的决策树模型对全部数据进行拟合训练</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">model=DecisionTreeRegressor(max_leaf_nodes=best_tree_size)</span><br><span class="line">model.fit(X,y)</span><br></pre></td></tr></table></figure>
+
+<style>#sk-container-id-1 {color: black;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>DecisionTreeRegressor(max_leaf_nodes=180)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">DecisionTreeRegressor</label><div class="sk-toggleable__content"><pre>DecisionTreeRegressor(max_leaf_nodes=180)</pre></div></div></div></div></div>
 
     </div>
 
@@ -301,7 +288,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"># 机器学习</a>
           </div>
 
         
@@ -310,13 +297,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/03/16/Post8/" rel="prev" title="求m区间最小值 题解">
-      <i class="fa fa-chevron-left"></i> 求m区间最小值 题解
+    <a href="/2024/03/17/Post11/" rel="prev" title="小A的最短路 题解">
+      <i class="fa fa-chevron-left"></i> 小A的最短路 题解
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/03/17/Post10/" rel="next" title="践踏 题解">
-      践踏 题解 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -375,7 +359,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%86%E5%BD%A2%E5%8A%A0%E6%B3%95-%E9%9C%80%E8%A6%81%E6%A0%A1%E5%9B%AD%E7%BD%91%E8%AE%BF%E9%97%AE"><span class="nav-number">1.</span> <span class="nav-text">圆形加法(需要校园网访问)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Format"><span class="nav-number">1.2.</span> <span class="nav-text">Format</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Input"><span class="nav-number">1.2.1.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output"><span class="nav-number">1.2.2.</span> <span class="nav-text">Output</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Samples"><span class="nav-number">1.3.</span> <span class="nav-text">Samples</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#input1"><span class="nav-number">1.3.1.</span> <span class="nav-text">input1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#output1"><span class="nav-number">1.3.2.</span> <span class="nav-text">output1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Limitation"><span class="nav-number">1.4.</span> <span class="nav-text">Limitation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
