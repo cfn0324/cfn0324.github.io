@@ -238,7 +238,7 @@ int main(){
 
 ## 倍增在ST表中的应用
 
-### 【模板】ST 表
+### [【模板】ST 表](https://www.luogu.com.cn/problem/P3865)
 
 #### 题目背景
 
