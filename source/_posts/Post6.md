@@ -109,3 +109,72 @@ $$T(n)=O(nlog(n))$$
 #### 提示
 
 数据保证 $0\le x,y\le 10^9$
+
+#### AC代码
+```c++
+#include <iostream>
+#include <algorithm>
+#include <cmath>
+using namespace std;
+
+typedef long long ll;
+
+struct node{
+    int x,y;
+    bool operator <(const node a)const{
+        if(x==a.x) return y<a.y;
+        return x<a.x;
+    }
+};
+
+bool cmp1(node a,node b){
+    if(a.x==b.x) return a.y<b.y;
+    return a.x<b.x;
+}
+
+bool cmp2(node a,node b){
+    if(a.y==b.y) return a.x<b.x;
+    return a.y<b.y;
+}
+
+node num1[400005];
+node num2[400005];
+
+ll fz(int l,int r){
+    if(l==r) return 0x3f3f3f3f3f3f3f3f;
+    int mid=(l+r)/2;
+    ll d1=fz(l,mid);
+    ll d2=fz(mid+1,r);
+    ll d=min(d1,d2);
+    int cnt=0;
+    //int l2=lower_bound(num1+l,num1+r+1,node{num1[mid].x-d,0})-num1;
+    //int r2=upper_bound(num1+l,num1+r+1,node{num1[mid].x+d,0})-num1;
+    for(int i=l;i<=r;i++){
+        if(abs(num1[i].x-num1[mid].x)<d){
+            num2[++cnt]=num1[i];
+        }else{
+            break;
+        }
+    }
+    sort(num2+1,num2+1+cnt,cmp2);
+    for(int i=1;i<=cnt;i++){
+        for(int j=i+1;j<=cnt&&j<=i+7;j++){
+            d=min(d,1LL*(num2[i].x-num2[j].x)*(num2[i].x-num2[j].x)+1LL*(num2[i].y-num2[j].y)*(num2[i].y-num2[j].y));
+        }
+    }
+    return d;
+}
+
+int main(){
+    int n;
+    cin>>n;
+    for(int i=1;i<=n;i++){
+        cin>>num1[i].x>>num1[i].y;
+    }
+    sort(num1+1,num1+1+n,cmp1);
+    ll ans=fz(1,n);
+    printf("%.4f",sqrt(ans));
+
+    return 0;
+}
+```
