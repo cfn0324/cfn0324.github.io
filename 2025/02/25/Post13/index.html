@@ -21,19 +21,19 @@
   </script>
 
   <meta property="og:type" content="article">
-<meta property="og:title" content="圆形加法 题解">
-<meta property="og:url" content="http://example.com/2024/03/16/Post9/index.html">
+<meta property="og:title" content="泰勒公式以及常见展开">
+<meta property="og:url" content="http://example.com/2025/02/25/Post13/index.html">
 <meta property="og:site_name" content="快快超人的博客">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2024/03/16/Post9/1.jpg">
-<meta property="article:published_time" content="2024-03-16T14:54:16.112Z">
-<meta property="article:modified_time" content="2024-03-16T16:20:46.062Z">
+<meta property="og:image" content="http://example.com/2025/02/25/Post13/1.jpg">
+<meta property="article:published_time" content="2025-02-25T15:37:53.093Z">
+<meta property="article:modified_time" content="2025-02-25T15:51:26.564Z">
 <meta property="article:author" content="cfn">
-<meta property="article:tag" content="算法">
+<meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2024/03/16/Post9/1.jpg">
+<meta name="twitter:image" content="http://example.com/2025/02/25/Post13/1.jpg">
 
-<link rel="canonical" href="http://example.com/2024/03/16/Post9/">
+<link rel="canonical" href="http://example.com/2025/02/25/Post13/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>圆形加法 题解 | 快快超人的博客</title>
+  <title>泰勒公式以及常见展开 | 快快超人的博客</title>
   
 
 
@@ -191,7 +191,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/16/Post9/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/25/Post13/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -204,7 +204,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          圆形加法 题解
+          泰勒公式以及常见展开
         </h1>
 
         <div class="post-meta">
@@ -213,23 +213,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2024-03-16 22:54:16" itemprop="dateCreated datePublished" datetime="2024-03-16T22:54:16+08:00">2024-03-16</time>
+              <time title="创建时间：2025-02-25 23:37:53 / 修改时间：23:51:26" itemprop="dateCreated datePublished" datetime="2025-02-25T23:37:53+08:00">2025-02-25</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-03-17 00:20:46" itemprop="dateModified" datetime="2024-03-17T00:20:46+08:00">2024-03-17</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
                 </span>
             </span>
 
@@ -239,7 +233,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -258,40 +252,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="/2024/03/16/Post9/1.jpg"></p>
+        <p><img src="/2025/02/25/Post13/1.jpg"></p>
 <span id="more"></span>
-<h1 id="圆形加法-需要校园网访问"><a href="#圆形加法-需要校园网访问" class="headerlink" title="圆形加法(需要校园网访问)"></a><a target="_blank" rel="noopener" href="http://172.25.5.128/p/185">圆形加法</a>(需要校园网访问)</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>你有一个长度为 $n$ 的序列 $x$，其中元素由 $0$ 到 $n-1$编号。序列各元素初始全为 $0$。</p>
-<p>你可以进行若干次如下操作：每次操作选取一组 $i$ 和 $k$ $(0 \leq i \leq n - 1, 1 \leq k \leq n)$，对所有满足 $i \leq j \leq i +k-1$ 的 $j$，执行 $x_{j \bmod n} \leftarrow x_{j \bmod n} + 1$。（通俗地讲就是将序列首尾相接拼成一个环，每次选取环上的一段，将其上元素的值全部加 $1$。）</p>
-<p>现给定另一个序列 $A$，求出由 $x$ 变换为 $A$ 所需的最小操作数。</p>
-<h2 id="Format"><a href="#Format" class="headerlink" title="Format"></a>Format</h2><h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>标准输入以下格式给出：</p>
-<p>$ N $</p>
-<p>$ A_0 $ $ A_1 $ $ \cdots $ $ A_{N-1} $</p>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>一个整数，表示由 $x$ 变换为 $A$ 所需的最小操作数。</p>
-<h2 id="Samples"><a href="#Samples" class="headerlink" title="Samples"></a>Samples</h2><h3 id="input1"><a href="#input1" class="headerlink" title="input1"></a>input1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">1 2 1 2</span><br></pre></td></tr></table></figure>
-<h3 id="output1"><a href="#output1" class="headerlink" title="output1"></a>output1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
 
-<p><strong>样例解释:</strong></p>
-<p>您可以按如下方式操作:</p>
-<p>最初，$x&#x3D;(0,0,0,0)$;</p>
-<p>$i &#x3D; 1,k &#x3D; 3$ 时进行操作，$x&#x3D;( 0，1，1，1)$;</p>
-<p>$i &#x3D; 3,k &#x3D; 3$ 时进行操作，$x&#x3D;( 1，2，1，2)$ ;</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">3 1 4 1 5</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">1000000000</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1000000000</span><br></pre></td></tr></table></figure>
-
-<h2 id="Limitation"><a href="#Limitation" class="headerlink" title="Limitation"></a>Limitation</h2><p>$ 1\ \leq\ N\ \leq\ 200000 $</p>
-<p>$ 1\ \leq\ A_i\ \leq\ 10^9 $</p>
-<p>所有输入均为整数</p>
-<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>很有趣的一个思维题，首先我们把这个数列转化成差分形式，例如1 2 1 2转化成-1 1 -1 1，例如3 1 4 1 5转化成-2 2 3 -3 4（第一个-1和第一个-2是因为首位与末尾相接），这样我们就知道有多少组1 -1对而不用考虑他们怎样匹配的。</p>
-<p>但是这样我们少考虑了一种情况，也就是首尾相接时，1和-1在同一个位置导致他们相消了，但是在这种情况下是整体加+1，所以也只需考虑数列里面最大的数和1-1对数的差值，就是首位相连的个数。</p>
-<p>这样我们就得到了所有的1 -1对（包括首尾相接的1 -1对），所以我们只要统计所有正数之和加上相消的1 -1对数就是题目的答案了。（注意开longlong）</p>
-<p>洛谷有个类似题，可以去尝试一下<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1969">P1969 [NOIP2013 提高组] 积木大赛 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
-<p>AC代码如下</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"></span><br><span class="line">ll n,num[<span class="number">200005</span>],maxx,ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>,&amp;num[i]);</span><br><span class="line">		maxx=<span class="built_in">max</span>(maxx,num[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;i++)</span><br><span class="line">	<span class="keyword">if</span>(num[i]-num[i<span class="number">-1</span>]&gt;<span class="number">0</span>)</span><br><span class="line">	ans+=num[i]-num[i<span class="number">-1</span>];</span><br><span class="line">	<span class="keyword">if</span>(num[<span class="number">0</span>]-num[n<span class="number">-1</span>]&gt;<span class="number">0</span>)</span><br><span class="line">	ans+=num[<span class="number">0</span>]-num[n<span class="number">-1</span>];</span><br><span class="line">	cout&lt;&lt;<span class="built_in">max</span>(maxx,ans);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="n次多项式的麦克劳林公式"><a href="#n次多项式的麦克劳林公式" class="headerlink" title="n次多项式的麦克劳林公式"></a>n次多项式的麦克劳林公式</h3><p>$$<br>p(x)&#x3D;p(0)+\frac{p’(0)}{1!}x+\frac{p’’(0)}{2!}x^2+\frac{p’’’(0)}{3!}x^3+\cdots+\frac{p^{(n)}(0)}{n!}x^n<br>$$</p>
+<h3 id="n次多项式的泰勒公式"><a href="#n次多项式的泰勒公式" class="headerlink" title="n次多项式的泰勒公式"></a>n次多项式的泰勒公式</h3><p>$$<br>p(x)&#x3D;p(x_0)+\frac{p’(x_0)}{1!}(x-x_0)+\frac{p’’(x_0)}{2!}(x-x_0)^2+\frac{p’’’(x_0)}{3!}(x-x_0)^3+\cdots+\frac{p^{(n)}(x_0)}{n!}(x-x_0)^n<br>$$</p>
+<h3 id="拉格朗日余项"><a href="#拉格朗日余项" class="headerlink" title="拉格朗日余项"></a>拉格朗日余项</h3><p>$$<br>r_n(x)&#x3D;\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}<br>$$</p>
+<h3 id="佩亚诺余项"><a href="#佩亚诺余项" class="headerlink" title="佩亚诺余项"></a>佩亚诺余项</h3><p>$$<br>r_n(x)&#x3D;o((x-x_0)^n)<br>$$</p>
+<h3 id="常见的泰勒展开"><a href="#常见的泰勒展开" class="headerlink" title="常见的泰勒展开"></a>常见的泰勒展开</h3><p>$$<br>\begin{aligned}<br>&amp;e^x&#x3D;\sum_{n&#x3D;0}^{\infty}\frac{1}{n!}x^{n}&#x3D;1+x+\frac{1}{2!}x^2+\cdots,x\in(-\infty,+\infty) \<br>&amp;\sin x&#x3D;\sum_{n&#x3D;0}^{\infty}\frac{(-1)^n}{(2n+1)!}x^{2n+1}&#x3D;x-\frac{1}{3!}x^3+\frac{1}{5!}x^5+\cdots,x\in(-\infty,+\infty) \<br>&amp;\cos x&#x3D;\sum_{n&#x3D;0}^{\infty}\frac{(-1)^n}{(2n)!}x^{2n}&#x3D;1-\frac{1}{2!}x^2+\frac{1}{4!}x^4+\cdots,x\in(-\infty,+\infty) \<br>&amp;\ln (1+x)&#x3D;\sum_{n&#x3D;0}^{\infty}\frac{(-1)^n}{n+1}x^{n+1}&#x3D;x-\frac{1}{2}x^2+\frac{1}{3}x^3+\cdots,x\in(-1,1] \<br>&amp;\frac{1}{1-x}&#x3D;\sum_{n&#x3D;0}^{\infty}x^n&#x3D;1+x+x^2+x^3+\cdots,x\in(-1,1) \<br>&amp;\frac{1}{1+x}&#x3D;\sum_{n&#x3D;0}^{\infty}x^n&#x3D;1-x+x^2-x^3+\cdots,x\in(-1,1) \<br>&amp;(1+x)^{\alpha}&#x3D;1+\sum_{n&#x3D;1}^{\infty}\frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!}x^n&#x3D;1+\alpha x+\frac{\alpha(\alpha-1)}{2!}x^2+\cdots,x\in(-1,1) \<br>&amp;\arctan x&#x3D;\sum_{n&#x3D;0}^{\infty}\frac{(-1)^n}{2n+1}x^{2n+1}&#x3D;x-\frac{1}{3}x^3+\frac{1}{5}x^5+\cdots,x\in[-1,1] \<br>&amp;\arcsin x&#x3D;x+\frac{1}{6}x^3+\frac{3}{40}x^5+\cdots,x\in(-1,1) \<br>&amp;\tan x&#x3D;x+\frac{1}{3}x^3+\frac{2}{15}x^5+\cdots,x\in(-\frac{\pi}{2},\frac{\pi}{2})<br>\end{aligned}<br>$$</p>
 
     </div>
 
@@ -301,7 +270,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"># 数学</a>
           </div>
 
         
@@ -310,13 +279,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/03/16/Post8/" rel="prev" title="求m区间最小值 题解">
-      <i class="fa fa-chevron-left"></i> 求m区间最小值 题解
+    <a href="/2024/04/05/Post12/" rel="prev" title="决策树和随机森林">
+      <i class="fa fa-chevron-left"></i> 决策树和随机森林
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/03/17/Post10/" rel="next" title="践踏 题解">
-      践踏 题解 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -375,7 +341,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%86%E5%BD%A2%E5%8A%A0%E6%B3%95-%E9%9C%80%E8%A6%81%E6%A0%A1%E5%9B%AD%E7%BD%91%E8%AE%BF%E9%97%AE"><span class="nav-number">1.</span> <span class="nav-text">圆形加法(需要校园网访问)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Format"><span class="nav-number">1.2.</span> <span class="nav-text">Format</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Input"><span class="nav-number">1.2.1.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output"><span class="nav-number">1.2.2.</span> <span class="nav-text">Output</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Samples"><span class="nav-number">1.3.</span> <span class="nav-text">Samples</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#input1"><span class="nav-number">1.3.1.</span> <span class="nav-text">input1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#output1"><span class="nav-number">1.3.2.</span> <span class="nav-text">output1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Limitation"><span class="nav-number">1.4.</span> <span class="nav-text">Limitation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#n%E6%AC%A1%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E9%BA%A6%E5%85%8B%E5%8A%B3%E6%9E%97%E5%85%AC%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">n次多项式的麦克劳林公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#n%E6%AC%A1%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E6%B3%B0%E5%8B%92%E5%85%AC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">n次多项式的泰勒公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%BD%99%E9%A1%B9"><span class="nav-number">3.</span> <span class="nav-text">拉格朗日余项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%A9%E4%BA%9A%E8%AF%BA%E4%BD%99%E9%A1%B9"><span class="nav-number">4.</span> <span class="nav-text">佩亚诺余项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%B3%B0%E5%8B%92%E5%B1%95%E5%BC%80"><span class="nav-number">5.</span> <span class="nav-text">常见的泰勒展开</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
