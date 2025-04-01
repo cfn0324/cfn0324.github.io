@@ -1,6 +1,6 @@
 ---
-title: LaTex数学命令
-tags: LaTex
+title: LaTeX数学命令
+tags: LaTeX
 categories: 学习
 ---
 
@@ -21,9 +21,10 @@ categories: 学习
 * 平方根：\sqrt{x} --> $\sqrt{x}$
 * $n$ 次方根：\sqrt[n]{x} --> $\sqrt[n]{x}$
 
-### 求和、积分、极限：
+### 求和、求积、积分、极限：
 
 * 求和：\sum_{i=1}^{n}a_i --> $\sum_{i=1}^{n}a_i$
+* 求积：\prod_{i=1}^{n}a_i--> $\prod_{i=1}^{n}a_i$
 * 积分：\int_{a}^{b}f(x)dx --> $\int_{a}^{b}f(x)dx$
 * 极限：\lim_{x\to\infty} --> $\lim_{x\to\infty}$
 
@@ -149,7 +150,7 @@ y=
 \end{cases}
 ```
 $$
-    y=
+y=
     \begin{cases}
         ax^2+bx+c & x< 0
         \\\\
