@@ -167,7 +167,7 @@ body.profile-page {
 .github-shadow { background: #c9e2e9; }
 .blog-shadow { background: #ffc9dc; }
 
-.blog-label {
+.social-label {
   position: absolute;
   top: calc(100% + 6px);
   left: 50%;
@@ -178,6 +178,11 @@ body.profile-page {
   line-height: 1;
   text-shadow: 0 1px 8px rgba(14, 27, 54, .9), 0 0 3px rgba(14, 27, 54, .9);
   transform: translateX(-50%);
+}
+
+.email-link .social-label {
+  font-size: 9px;
+  letter-spacing: 0;
 }
 
 .quote-container {
