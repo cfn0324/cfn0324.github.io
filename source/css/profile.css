@@ -27,7 +27,6 @@ body.profile-page {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  animation: fade-in .8s ease-out both;
 }
 
 .background-wrapper {
@@ -38,6 +37,12 @@ body.profile-page {
   background: #b9dcee;
 }
 
+.background-picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
 .background-image {
   position: absolute;
   inset: 0;
@@ -46,17 +51,8 @@ body.profile-page {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  opacity: 0;
-  transition: opacity .6s ease-out;
-}
-
-.background-placeholder {
-  transform: scale(1.035);
-  filter: blur(8px);
   opacity: 1;
 }
-
-.background-main.loaded { opacity: 1; }
 
 .background-overlay {
   position: absolute;
@@ -72,15 +68,12 @@ body.profile-page {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  animation: content-fade-in .6s ease-out .5s forwards;
 }
 
 .avatar-container {
   position: relative;
   width: 5rem;
   height: 5rem;
-  animation: avatar-scale .6s cubic-bezier(.34, 1.56, .64, 1) .6s backwards;
 }
 
 .avatar-image {
@@ -93,12 +86,7 @@ body.profile-page {
   box-shadow: 0 0 10px rgba(0, 0, 0, .5);
   object-fit: cover;
   user-select: none;
-  transition: opacity .4s ease-out;
 }
-
-.avatar-placeholder { filter: blur(3px); }
-.avatar-main { opacity: 0; }
-.avatar-main.loaded { opacity: 1; }
 
 .social-icons {
   position: relative;
@@ -125,7 +113,6 @@ body.profile-page {
   color: #fff;
   cursor: pointer;
   text-decoration: none;
-  animation: icon-rotate-in .6s cubic-bezier(.34, 1.56, .64, 1) var(--enter-delay, .8s) backwards;
   transition: transform .3s cubic-bezier(.34, 1.56, .64, 1);
 }
 
@@ -150,7 +137,7 @@ body.profile-page {
   transition: background .3s, border-color .3s, backdrop-filter .3s;
 }
 
-.icon-wrapper i { font-size: 1.8rem; line-height: 1; }
+.icon-wrapper svg { display: block; width: 1.8rem; height: 1.8rem; }
 .social-link:hover .icon-wrapper { border-color: rgba(255, 255, 255, .4); background: rgba(255, 255, 255, .48); color: #fff; backdrop-filter: blur(4px); }
 
 .icon-shadow {
@@ -194,26 +181,19 @@ body.profile-page {
   width: 360px;
   max-width: 80vw;
   padding: .5rem .75rem;
+  transform: translateX(-50%);
   border: 0;
   border-radius: .5rem;
   background: transparent;
   color: #fff;
   font: inherit;
+  font-size: 16px;
+  letter-spacing: .04em;
+  line-height: 1.7;
   text-shadow: 0 2px 20px rgba(0, 0, 0, .88), 0 0 4px rgba(20, 35, 62, .8);
   user-select: none;
-  opacity: 0;
-  transform: translate(-50%, 5px);
-  transition: opacity .6s, transform .6s, box-shadow .3s, background-color .3s;
-  backdrop-filter: blur(2px);
+  text-align: center;
 }
-
-.quote-container.quote-visible { opacity: 1; transform: translate(-50%, 0); }
-.quote-text { display: block; text-align: center; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 16px; letter-spacing: .04em; line-height: 1.7; }
-
-@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
-@keyframes content-fade-in { from { opacity: 0; } to { opacity: 1; } }
-@keyframes avatar-scale { from { opacity: 0; transform: scale(0); } to { opacity: 1; transform: scale(1); } }
-@keyframes icon-rotate-in { from { transform: scale(0) rotate(-180deg); } to { transform: scale(1) rotate(0); } }
 
 @media (max-width: 420px) {
   .social-icons { width: min(360px, calc(100vw - 32px)); }
@@ -221,5 +201,5 @@ body.profile-page {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
