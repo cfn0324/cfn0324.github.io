@@ -16,7 +16,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"cfn0324.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"cfn0324.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta property="og:type" content="article">
@@ -24,13 +24,13 @@
 <meta property="og:url" content="https://cfn0324.github.io/2024/03/16/Post9/index.html">
 <meta property="og:site_name" content="快快超人的博客">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cfn0324.github.io/2024/03/16/Post9/1.jpg">
+<meta property="og:image" content="https://cfn0324.github.io/images/blog-thumbnails/Post9.webp">
 <meta property="article:published_time" content="2024-03-16T14:54:16.112Z">
-<meta property="article:modified_time" content="2024-03-16T16:20:46.062Z">
+<meta property="article:modified_time" content="2026-09-28T07:25:12.244Z">
 <meta property="article:author" content="cfn">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cfn0324.github.io/2024/03/16/Post9/1.jpg">
+<meta name="twitter:image" content="https://cfn0324.github.io/images/blog-thumbnails/Post9.webp">
 
 <link rel="canonical" href="https://cfn0324.github.io/2024/03/16/Post9/">
 
@@ -79,7 +79,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -220,7 +220,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-03-17 00:20:46" itemprop="dateModified" datetime="2024-03-17T00:20:46+08:00">2024-03-17</time>
+                <time title="修改时间：2026-09-28 15:25:12" itemprop="dateModified" datetime="2026-09-28T15:25:12+08:00">2026-09-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -257,7 +257,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><img src="/2024/03/16/Post9/1.jpg"></p>
+        <p><img fetchpriority="high" decoding="async" loading="eager" src="/images/blog-thumbnails/Post9.webp"></p>
 <span id="more"></span>
 <h1 id="圆形加法-需要校园网访问"><a href="#圆形加法-需要校园网访问" class="headerlink" title="圆形加法(需要校园网访问)"></a><a target="_blank" rel="noopener" href="http://172.25.5.128/p/185">圆形加法</a>(需要校园网访问)</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>你有一个长度为 $n$ 的序列 $x$，其中元素由 $0$ 到 $n-1$编号。序列各元素初始全为 $0$。</p>
 <p>你可以进行若干次如下操作：每次操作选取一组 $i$ 和 $k$ $(0 \leq i \leq n - 1, 1 \leq k \leq n)$，对所有满足 $i \leq j \leq i +k-1$ 的 $j$，执行 $x_{j \bmod n} \leftarrow x_{j \bmod n} + 1$。（通俗地讲就是将序列首尾相接拼成一个环，每次选取环上的一段，将其上元素的值全部加 $1$。）</p>
@@ -460,12 +460,8 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>
