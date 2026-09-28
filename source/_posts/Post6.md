@@ -4,7 +4,7 @@ tags: 算法
 categories: 学习
 ---
 
-![](Post6/1.png)
+![](Post6/1.webp)
 <!-- more -->
 
 # 分治

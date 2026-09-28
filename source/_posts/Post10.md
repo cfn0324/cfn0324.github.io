@@ -4,7 +4,7 @@ tags: 算法
 categories: 题解
 ---
 
-![](Post10/1.jpg)
+![](Post10/1.webp)
 <!-- more -->
 
 # [践踏](https://ac.nowcoder.com/acm/contest/26896/1002)

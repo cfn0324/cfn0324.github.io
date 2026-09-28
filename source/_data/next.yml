@@ -3,3 +3,6 @@ favicon:
   medium: /images/profile-favicon-32.png
   apple_touch_icon: /images/profile-avatar-touch.png
   safari_pinned_tab: false
+
+motion:
+  enable: false

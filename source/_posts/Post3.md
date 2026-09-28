@@ -4,7 +4,7 @@ tags: LaTeX
 categories: 学习
 ---
 
-![](Post3/1.jpeg)
+![](Post3/1.webp)
 <!-- more -->
 ### 上下标：
 

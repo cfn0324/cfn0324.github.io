@@ -4,7 +4,7 @@ tags: Mermaid
 categories: 学习
 ---
 
-![](Post5/1.png)
+![](Post5/1.webp)
 <!-- more -->
 
 ## 流程图

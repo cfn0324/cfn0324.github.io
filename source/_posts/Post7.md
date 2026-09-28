@@ -4,7 +4,7 @@ tags: 算法
 categories: 学习
 ---
 
-![](Post7/1.png)
+![](Post7/1.webp)
 <!-- more -->
 
 # 倍增

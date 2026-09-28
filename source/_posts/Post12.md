@@ -4,7 +4,7 @@ tags: 机器学习
 categories: 学习
 ---
 
-![](Post12/1.jpg)
+![](Post12/1.webp)
 <!-- more -->
 
 ### 决策树

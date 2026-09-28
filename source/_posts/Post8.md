@@ -4,7 +4,7 @@ tags: 算法
 categories: 题解
 ---
 
-![](Post8/1.jpg)
+![](Post8/1.webp)
 <!-- more -->
 # [求m区间内的最小值](https://www.luogu.com.cn/problem/P1440)
 

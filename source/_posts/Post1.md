@@ -4,7 +4,7 @@ tags: 算法
 categories: 学习
 ---
 
-![](Post1/1.jpeg)
+![](Post1/1.webp)
 <!-- more -->
 ## 巴什博弈
 一堆n个物品，两个人轮流从中取出1~m个，最后取光者胜。

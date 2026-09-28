@@ -4,7 +4,7 @@ tags: 算法
 categories: 题解
 ---
 
-![](Post9/1.jpg)
+![](Post9/1.webp)
 <!-- more -->
 # [圆形加法](http://172.25.5.128/p/185)(需要校园网访问)
 

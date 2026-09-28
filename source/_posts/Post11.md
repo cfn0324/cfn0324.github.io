@@ -4,7 +4,7 @@ tags: 算法
 categories: 题解
 ---
 
-![](Post11/1.jpg)
+![](Post11/1.webp)
 <!-- more -->
 # [小A的最短路](https://ac.nowcoder.com/acm/problem/23482)
 

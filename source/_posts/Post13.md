@@ -4,7 +4,7 @@ tags: 数学
 categories: 学习
 ---
 
-![](Post13/1.jpg)
+![](Post13/1.webp)
 <!-- more -->
 
 

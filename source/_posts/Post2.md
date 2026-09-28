@@ -4,7 +4,7 @@ tags: Markdown
 categories: 学习
 ---
 
-![](Post2/1.png)
+![](Post2/1.webp)
 <!-- more -->
 # 标题
 
@@ -266,20 +266,20 @@ printf("hello world");
 ## 基本图片引用
 在链接格式前加一个 ! 表示图片()里面可以是路径也可以是网址
 ```
-![图片](Post2/1.png)
+![图片](Post2/1.webp)
 ```
 示例：
 
-![图片](Post2/1.png)
+![图片](Post2/1.webp)
 
 ## 使用< img >标签
 Markdown 还没有办法指定图片的高度与宽度，可以使用普通的 < img > 标签。
 ```html
-<img src="Post2/1.png" width="50%">
+<img src="Post2/1.webp" width="50%">
 ```
 示例：
 
-<img src="Post2/1.png" width="50%">
+<img src="Post2/1.webp" width="50%">
 
 # 表格
 
