@@ -27,6 +27,7 @@ body.profile-page {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  animation: page-enter .4s ease-out both;
 }
 
 .background-wrapper {
@@ -68,12 +69,14 @@ body.profile-page {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  animation: content-enter .5s cubic-bezier(.2, .7, .25, 1) .04s both;
 }
 
 .avatar-container {
   position: relative;
   width: 5rem;
   height: 5rem;
+  animation: avatar-enter .55s cubic-bezier(.34, 1.56, .64, 1) .08s both;
 }
 
 .avatar-image {
@@ -113,8 +116,13 @@ body.profile-page {
   color: #fff;
   cursor: pointer;
   text-decoration: none;
+  animation: link-enter .45s cubic-bezier(.34, 1.56, .64, 1) var(--enter-delay, .14s) both;
   transition: transform .3s cubic-bezier(.34, 1.56, .64, 1);
 }
+
+.social-link:nth-child(1) { --enter-delay: .14s; }
+.social-link:nth-child(2) { --enter-delay: .21s; }
+.social-link:nth-child(3) { --enter-delay: .28s; }
 
 .social-link:hover { transform: scale(1.1) rotate(5deg); }
 .social-link:active { transform: scale(.95); }
@@ -193,7 +201,14 @@ body.profile-page {
   text-shadow: 0 2px 20px rgba(0, 0, 0, .88), 0 0 4px rgba(20, 35, 62, .8);
   user-select: none;
   text-align: center;
+  animation: quote-enter .45s ease-out .2s both;
 }
+
+@keyframes page-enter { from { opacity: 0; } to { opacity: 1; } }
+@keyframes content-enter { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes avatar-enter { from { opacity: 0; transform: scale(.72); } to { opacity: 1; transform: scale(1); } }
+@keyframes link-enter { from { opacity: 0; transform: translateY(8px) scale(.85); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes quote-enter { from { opacity: 0; transform: translate(-50%, 8px); } to { opacity: 1; transform: translate(-50%, 0); } }
 
 @media (max-width: 420px) {
   .social-icons { width: min(360px, calc(100vw - 32px)); }
