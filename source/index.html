@@ -5,40 +5,114 @@ layout: false
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101916">
-  <meta name="description" content="快快超人的个人主页，记录学习、生活与代码。">
-  <title>快快超人 · 个人主页</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#c8e3f0">
+  <meta name="description" content="快快超人的个人主页。">
+  <title>快快超人</title>
+  <link rel="icon" href="/images/favicon-32x32-next.png" type="image/png">
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="/css/profile.css">
 </head>
 <body class="profile-page">
-  <div class="scene" aria-hidden="true">
-    <div class="scene__glow scene__glow--one"></div>
-    <div class="scene__glow scene__glow--two"></div>
-    <div class="scene__horizon"></div>
-    <div class="scene__grain"></div>
-  </div>
+  <main class="page-container">
+    <div class="background-wrapper" aria-hidden="true">
+      <img src="/images/profile-background.png" alt="" class="background-image background-placeholder">
+      <img src="/images/profile-background.png" alt="" class="background-image background-main" id="background-main" fetchpriority="high">
+      <div class="background-overlay"></div>
+    </div>
 
-  <header class="topbar">
-    <a class="wordmark" href="/" aria-label="快快超人主页"><span class="wordmark__mark">C</span><span>快快超人</span></a>
-    <a class="blog-link" href="/blog/">博客 <span aria-hidden="true">↗</span></a>
-  </header>
+    <div class="content-wrapper">
+      <div class="avatar-container">
+        <img src="/images/profile-avatar.png" alt="" class="avatar-image avatar-placeholder">
+        <img src="/images/profile-avatar.png" alt="快快超人的头像" class="avatar-image avatar-main" id="avatar-main" fetchpriority="high">
+      </div>
 
-  <main class="hero">
-    <div class="avatar" aria-label="快快超人头像">快</div>
-    <p class="eyebrow"><span class="status-dot"></span> PERSONAL SPACE</p>
-    <h1>你好，我是<span>快快超人</span></h1>
-    <p class="intro">在代码与生活之间，记录每一次思考。</p>
-    <div class="hero__rule"></div>
-    <p class="signature">Keep curious. Keep creating.</p>
+      <nav class="social-icons" aria-label="个人链接">
+        <a href="https://github.com/cfn0324" target="_blank" rel="noopener noreferrer" class="social-link" style="--enter-delay: .8s" aria-label="GitHub" title="GitHub">
+          <span class="icon-wrapper" aria-hidden="true">
+            <i class="fab fa-github" aria-hidden="true"></i>
+          </span>
+          <span class="icon-shadow github-shadow" aria-hidden="true"></span>
+        </a>
+
+        <a href="/blog/" class="social-link blog-link" style="--enter-delay: .95s" aria-label="博客，进入文章列表" title="进入博客">
+          <span class="icon-wrapper" aria-hidden="true">
+            <i class="fas fa-book-open" aria-hidden="true"></i>
+          </span>
+          <span class="icon-shadow blog-shadow" aria-hidden="true"></span>
+          <span class="blog-label">博客</span>
+        </a>
+      </nav>
+    </div>
+
+    <button class="quote-container" id="quote-container" type="button" aria-label="点击更换一句话">
+      <span class="quote-text" id="quote-text" aria-live="polite"></span>
+      <span class="quote-verse" id="quote-verse"></span>
+    </button>
   </main>
 
-  <footer class="bottom-bar">
-    <a class="social-link" href="https://github.com/cfn0324" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.1c-3.1.68-3.76-1.31-3.76-1.31-.5-1.29-1.23-1.63-1.23-1.63-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 .1.77 2.09 3.27 1.57.1-.72.39-1.2.7-1.48-2.47-.28-5.07-1.24-5.07-5.51 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.67.12 2.95.71.78 1.14 1.78 1.14 3.01 0 4.27-2.6 5.22-5.08 5.5.4.35.75 1.02.75 2.06v3.04c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg>
-      <span>GitHub</span>
-    </a>
-    <span class="bottom-note">© 快快超人 · 个人主页</span>
-  </footer>
+  <script>
+    (() => {
+      const background = document.getElementById('background-main');
+      const avatar = document.getElementById('avatar-main');
+      const quoteText = document.getElementById('quote-text');
+      const quoteVerse = document.getElementById('quote-verse');
+      const quoteBox = document.getElementById('quote-container');
+      const quotes = [
+        ['把复杂的事想清楚，再把简单的事做好。', '快快超人'],
+        ['行而不辍，未来可期。', '《荀子·修身》'],
+        ['在代码与生活之间，记录每一次思考。', '快快超人']
+      ];
+      let quoteIndex = 0;
+      let typingTimer;
+
+      const reveal = (image) => {
+        if (image && image.complete && image.naturalWidth > 0) image.classList.add('loaded');
+      };
+      [background, avatar].forEach((image) => {
+        if (!image) return;
+        image.addEventListener('load', () => reveal(image), { once: true });
+        reveal(image);
+      });
+
+      function typeQuote(index) {
+        window.clearTimeout(typingTimer);
+        quoteText.textContent = '';
+        quoteVerse.textContent = '';
+        quoteVerse.classList.remove('visible');
+        const [line, source] = quotes[index % quotes.length];
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          quoteText.textContent = `「 ${line} 」`;
+          quoteVerse.textContent = `—— ${source}`;
+          quoteVerse.classList.add('visible');
+          return;
+        }
+        let cursor = 0;
+        const tick = () => {
+          quoteText.textContent = `「 ${line.slice(0, cursor)}${cursor < line.length ? '|' : ''} 」`;
+          if (cursor < line.length) {
+            cursor += 1;
+            typingTimer = window.setTimeout(tick, 95 + Math.random() * 75);
+          } else {
+            typingTimer = window.setTimeout(() => {
+              quoteText.textContent = `「 ${line} 」`;
+              quoteVerse.textContent = `—— ${source}`;
+              quoteVerse.classList.add('visible');
+            }, 160);
+          }
+        };
+        tick();
+      }
+
+      quoteBox.addEventListener('click', () => {
+        quoteIndex = (quoteIndex + 1) % quotes.length;
+        typeQuote(quoteIndex);
+      });
+      window.setTimeout(() => {
+        quoteBox.classList.add('quote-visible');
+        typeQuote(quoteIndex);
+      }, 1500);
+    })();
+  </script>
 </body>
 </html>
