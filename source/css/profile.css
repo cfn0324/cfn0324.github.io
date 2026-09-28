@@ -104,8 +104,8 @@ body.profile-page {
   position: relative;
   z-index: 10;
   display: flex;
-  width: 300px;
-  max-width: calc(100vw - 48px);
+  width: 360px;
+  max-width: calc(100vw - 32px);
   flex-direction: row;
   justify-content: space-evenly;
   margin-top: 2rem;
@@ -116,6 +116,7 @@ body.profile-page {
   display: flex;
   width: 3rem;
   height: 3rem;
+  flex: 0 0 3rem;
   align-items: center;
   justify-content: center;
   border: 0;
@@ -181,7 +182,7 @@ body.profile-page {
 }
 
 .email-link .social-label {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0;
 }
 
@@ -215,7 +216,7 @@ body.profile-page {
 @keyframes icon-rotate-in { from { transform: scale(0) rotate(-180deg); } to { transform: scale(1) rotate(0); } }
 
 @media (max-width: 420px) {
-  .social-icons { width: min(300px, calc(100vw - 40px)); }
+  .social-icons { width: min(360px, calc(100vw - 32px)); }
   .quote-container { bottom: max(12vh, calc(env(safe-area-inset-bottom) + 36px)); }
 }
 
