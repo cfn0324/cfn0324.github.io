@@ -7,7 +7,7 @@ layout: false
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#c8e3f0">
-  <meta name="description" content="快快超人的个人主页。">
+  <meta name="description" content="快快超人的个人主页">
   <title>快快超人</title>
   <link rel="icon" href="/images/favicon-32x32-next.png" type="image/png">
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
@@ -45,10 +45,9 @@ layout: false
       </nav>
     </div>
 
-    <button class="quote-container" id="quote-container" type="button" aria-label="点击更换一句话">
+    <div class="quote-container" id="quote-container" role="status" aria-live="polite">
       <span class="quote-text" id="quote-text" aria-live="polite"></span>
-      <span class="quote-verse" id="quote-verse"></span>
-    </button>
+    </div>
   </main>
 
   <script>
@@ -56,14 +55,8 @@ layout: false
       const background = document.getElementById('background-main');
       const avatar = document.getElementById('avatar-main');
       const quoteText = document.getElementById('quote-text');
-      const quoteVerse = document.getElementById('quote-verse');
       const quoteBox = document.getElementById('quote-container');
-      const quotes = [
-        ['把复杂的事想清楚，再把简单的事做好。', '快快超人'],
-        ['行而不辍，未来可期。', '《荀子·修身》'],
-        ['在代码与生活之间，记录每一次思考。', '快快超人']
-      ];
-      let quoteIndex = 0;
+      const quote = '广阔天地 大有可为';
       let typingTimer;
 
       const reveal = (image) => {
@@ -75,42 +68,31 @@ layout: false
         reveal(image);
       });
 
-      function typeQuote(index) {
+      function typeQuote() {
         window.clearTimeout(typingTimer);
         quoteText.textContent = '';
-        quoteVerse.textContent = '';
-        quoteVerse.classList.remove('visible');
-        const [line, source] = quotes[index % quotes.length];
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          quoteText.textContent = `「 ${line} 」`;
-          quoteVerse.textContent = `—— ${source}`;
-          quoteVerse.classList.add('visible');
+          quoteText.textContent = quote;
           return;
         }
         let cursor = 0;
         const tick = () => {
-          quoteText.textContent = `「 ${line.slice(0, cursor)}${cursor < line.length ? '|' : ''} 」`;
-          if (cursor < line.length) {
+          quoteText.textContent = `${quote.slice(0, cursor)}${cursor < quote.length ? '|' : ''}`;
+          if (cursor < quote.length) {
             cursor += 1;
             typingTimer = window.setTimeout(tick, 95 + Math.random() * 75);
           } else {
             typingTimer = window.setTimeout(() => {
-              quoteText.textContent = `「 ${line} 」`;
-              quoteVerse.textContent = `—— ${source}`;
-              quoteVerse.classList.add('visible');
+              quoteText.textContent = quote;
             }, 160);
           }
         };
         tick();
       }
 
-      quoteBox.addEventListener('click', () => {
-        quoteIndex = (quoteIndex + 1) % quotes.length;
-        typeQuote(quoteIndex);
-      });
       window.setTimeout(() => {
         quoteBox.classList.add('quote-visible');
-        typeQuote(quoteIndex);
+        typeQuote();
       }, 1500);
     })();
   </script>
