@@ -167,61 +167,34 @@ body.profile-page {
   position: fixed;
   z-index: 2;
   bottom: 15vh;
-  left: 50%;
-  width: max-content;
-  max-width: calc(100vw - 40px);
-  padding: .55rem 1rem;
-  transform: translateX(-50%);
-  border: 1px solid rgba(255, 255, 255, .82);
-  border-radius: 3px;
-  background: rgba(15, 35, 66, .12);
-  box-shadow: 0 2px 18px rgba(14, 27, 54, .16), inset 0 0 14px rgba(255, 255, 255, .08);
-  backdrop-filter: blur(3px);
+  left: 0;
+  right: 0;
+  width: 360px;
+  max-width: 80vw;
+  margin: 0 auto;
+  padding: .5rem .75rem;
+  border-radius: .5rem;
+  background: transparent;
+  backdrop-filter: blur(2px);
   color: #fff;
-  font: inherit;
+  font-family: 'PingFang SC', 'Microsoft Yahei', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Nunito', 'Comic Sans MS', Consolas, monospace, sans-serif;
   font-size: 16px;
-  letter-spacing: .04em;
-  line-height: 1.7;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, .88), 0 0 4px rgba(20, 35, 62, .8);
+  line-height: 1.6;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, .8);
   user-select: none;
-  text-align: center;
   opacity: 0;
-  animation: quote-enter .45s ease-out 1.5s forwards;
+  transform: translateY(5px);
+  transition: opacity .6s, transform .6s, box-shadow .3s, background-color .3s;
 }
 
-.quote-text::after {
-  display: inline-block;
-  width: 1px;
-  height: 1em;
-  margin-left: 3px;
-  background: currentColor;
-  content: "";
-  vertical-align: -.13em;
-  animation: caret-blink .8s steps(2, start) infinite;
-}
-
-.quote-bracket {
-  position: absolute;
-  top: 4px;
-  bottom: 4px;
-  width: 9px;
-  border-top: 2px solid rgba(255, 255, 255, .98);
-  border-bottom: 2px solid rgba(255, 255, 255, .98);
-  pointer-events: none;
-  filter: drop-shadow(0 1px 3px rgba(14, 27, 54, .8));
-}
-
-.quote-bracket-left { left: 4px; border-left: 2px solid rgba(255, 255, 255, .98); }
-.quote-bracket-right { right: 4px; border-right: 2px solid rgba(255, 255, 255, .98); }
-.quote-container.is-complete .quote-text::after { animation: none; opacity: 0; }
+.quote-container.quote-visible { opacity: 1; transform: translateY(0); }
+.quote-container:hover { box-shadow: 0 2px 20px rgba(0, 0, 0, .9); background-color: rgba(60, 60, 60, .3); }
+.quote-text { display: block; text-align: center; white-space: pre-wrap; word-break: break-word; }
 
 @keyframes page-enter { from { opacity: 0; } to { opacity: 1; } }
 @keyframes content-enter { from { opacity: 0; } to { opacity: 1; } }
 @keyframes avatar-enter { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 @keyframes icon-rotate-in { from { transform: scale(0) rotate(-180deg); } to { transform: scale(1) rotate(0); } }
-@keyframes quote-enter { from { opacity: 0; transform: translate(-50%, 5px); } to { opacity: 1; transform: translate(-50%, 0); } }
-@keyframes caret-blink { to { opacity: 0; } }
-
 @media (max-width: 420px) {
   .social-icons { width: min(360px, calc(100vw - 32px)); }
   .quote-container { bottom: max(12vh, calc(env(safe-area-inset-bottom) + 36px)); font-size: 15px; }
