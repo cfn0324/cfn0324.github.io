@@ -169,13 +169,10 @@ body.profile-page {
   bottom: 15vh;
   left: 0;
   right: 0;
-  width: 360px;
+  width: max-content;
   max-width: 80vw;
   margin: 0 auto;
-  padding: .5rem .75rem;
-  border-radius: .5rem;
   background: transparent;
-  backdrop-filter: blur(2px);
   color: #fff;
   font-family: 'PingFang SC', 'Microsoft Yahei', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Nunito', 'Comic Sans MS', Consolas, monospace, sans-serif;
   font-size: 16px;
@@ -184,11 +181,10 @@ body.profile-page {
   user-select: none;
   opacity: 0;
   transform: translateY(5px);
-  transition: opacity .6s, transform .6s, box-shadow .3s, background-color .3s;
+  transition: opacity .6s, transform .6s;
 }
 
 .quote-container.quote-visible { opacity: 1; transform: translateY(0); }
-.quote-container:hover { box-shadow: 0 2px 20px rgba(0, 0, 0, .9); background-color: rgba(60, 60, 60, .3); }
 .quote-text { display: block; text-align: center; white-space: pre-wrap; word-break: break-word; }
 
 @keyframes page-enter { from { opacity: 0; } to { opacity: 1; } }
