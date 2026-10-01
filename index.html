@@ -52,25 +52,42 @@
     </div>
 
     <div class="quote-container" role="note" aria-label="广阔天地 大有可为">
-      <span class="quote-bracket quote-bracket-left" aria-hidden="true"></span>
-      <span class="quote-text" aria-hidden="true">广阔天地 大有可为</span>
-      <span class="quote-bracket quote-bracket-right" aria-hidden="true"></span>
+      <span class="quote-text" aria-hidden="true">「 广阔天地 大有可为 」</span>
     </div>
   </main>
   <script>
     (() => {
-      const quote = '广阔天地 大有可为';
+      const quote = '「 广阔天地 大有可为 」';
+      const container = document.querySelector('.quote-container');
       const output = document.querySelector('.quote-text');
-      if (!output || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (!container || !output) return;
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        container.classList.add('quote-visible');
+        return;
+      }
 
       output.textContent = '';
       let index = 0;
+      let cursor = true;
+      let cursorTail = 0;
       const typeNext = () => {
-        output.textContent = quote.slice(0, ++index);
-        if (index < quote.length) window.setTimeout(typeNext, 165);
-        else output.parentElement.classList.add('is-complete');
+        if (index <= quote.length) {
+          output.textContent = quote.slice(0, index) + (cursor ? '|' : ' ');
+          index += 1;
+          cursor = !cursor;
+          window.setTimeout(typeNext, 40 + Math.random() * 160);
+        } else if (cursorTail < 8) {
+          output.textContent = quote + (cursorTail % 2 === 0 ? '|' : ' ');
+          cursorTail += 1;
+          window.setTimeout(typeNext, 240);
+        } else {
+          output.textContent = quote;
+        }
       };
-      window.setTimeout(typeNext, 2050);
+      window.setTimeout(() => {
+        container.classList.add('quote-visible');
+        typeNext();
+      }, 1500);
     })();
   </script>
 </body>
